@@ -10,9 +10,9 @@ int main(){
 
     long long soma,s,si,x,igual;
 
-    cin >> N;
+    scanf("%d",&N);
     for(i=0;i<N;i++){
-        cin >> temp;
+        scanf("%d",&temp);
         Input.push_back(temp);
     }
 
@@ -21,7 +21,6 @@ int main(){
     else{
 
         x = Input[0];
-        //soma = Input[0];
         V.push_back(x);
 
         for (i=1;i<N;i++){
@@ -53,24 +52,17 @@ int main(){
             SR.push_back(si);
         }
 
-        for(i=0;i<N;i++){
-            cout << Input[i] << " ";
-            cout << V[i] << " ";
-            cout << SV[i] << " ";
-            cout << SR[i] << "\n\n";
-        }
-
         soma = SV[N-1];
         igual = 1;
         for(i=1;i<N;i++){
 
             if(Input[i-1] == 1) igual = 1-igual;
 
-            if(igual == 1) soma = soma + SV[N-i];
-            else soma = soma + SR[N-1]; 
+            if(igual == 1) soma = soma + SV[N-i-1];
+            else soma = soma + SR[N-i-1]; 
 
         }
-        cout << soma << endl;
+        printf("%lld\n",soma);
     }
  
 return 0;

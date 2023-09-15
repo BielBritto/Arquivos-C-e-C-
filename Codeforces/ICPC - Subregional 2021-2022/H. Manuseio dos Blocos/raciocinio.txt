@@ -1,0 +1,51 @@
+
+
+Vetor [F,E,D,C,B,A]
+
+soma A
+
+[F,E,D,C,B-1,A-1]
+[F,E,D,C,B',A']
+
+soma A'
+
+[F,E,D,C,B'-1,A'-1]
+[F,E,D,C,B'',A'']
+
+soma A''
+
+Quando B zerar reseta o B e o A e decrementa 1 deles
+
+[F,E,D,C',B',A']
+
+soma A'
+
+[F,E,D,C',B'',A'']
+
+Soma A''
+
+Quando C zerar reseta o C o B e o A e decrementa 1 deles
+
+F,E,D',C',B',A'
+
+
+
+
+
+
+1,3,3,4,5,5
+
++5
+
+1,3,3,4,4,4
+
+
+
+
+
+
+
+
+
+
+
