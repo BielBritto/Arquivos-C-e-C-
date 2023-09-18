@@ -2,37 +2,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string str,strtemp;
-unsigned int i, j,cont, k,x;
-vector <string> V;
-string c;
+
+int i, j,res = 0;
+int N, alt, x;
  
 
 int main(){
 
-    cin >> str;
-    cin >> k;
+    cin >> N >> alt;
 
-    cont = 0;
-
-
-    for(j=0;j<k;j++){
-        strtemp = "";
-        for(i=j;i<str.size();i=i+k){
-            strtemp += str[i];
-        }
-        sort(strtemp.begin(),strtemp.end());
-        V.push_back(strtemp);
+    for(i=0;i<N;i++){
+        cin >> x;
+        if(x <= alt) res++;
     }
-    strtemp = "";
-    x = 0;
-    for(i=0;i<str.size();i = i+k){
-        for(j=0;j<k;j++){
-            if(x<V[j].size())strtemp += V[j][x];
-        }
-        x++;
-    }
-    cout << strtemp << endl;
+    printf("%d\n",res);
+
 
 return 0;
 }
