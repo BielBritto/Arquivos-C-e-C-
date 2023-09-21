@@ -3,11 +3,10 @@
 using namespace std;
 
 
-int V[1000001];
-int S[1000001];
+int V;
+priority_queue <int> Vec;
 
- 
-int soma(int valor){
+int soma(long long int valor){
     int s;
     int stemp;
     stemp = 0;
@@ -22,28 +21,24 @@ int soma(int valor){
 
 int main(){
 
+    //freopen("C:\\Users\\galkmim\\Desktop\\E_24_in.txt","r",stdin);
     int i, j;
-    int N, K;
+    int N, K, aux,res;
 
-    cin >> N >> K; 
+    Vec.push(0);
+    scanf("%d %d",&N,&K);
     for(i=0;i<N;i++){
-        scanf("%d", &V[i]);
-        S[i] = soma(V[i]);
-    }
-
-
-    for(i=0;i<K;i++){
-        
-        for()
-        V[j] = V[j]- soma(V[j]);
-
-        if(j!=N-1){
-            while(V[j] < V[j-1])
+        scanf("%d", &V);
+        while(V>0){
+            res = soma(V);
+            Vec.push(res);
+            V = V-res;
         }
-
-
     }
-        if(K == 0) break;
+    for(i=0;i<K-1;i++){
+        Vec.pop();
+    }
+    printf("%d",Vec.top());
 
 
 return 0;

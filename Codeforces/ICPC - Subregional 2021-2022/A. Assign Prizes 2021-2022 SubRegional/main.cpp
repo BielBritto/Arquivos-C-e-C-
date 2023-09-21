@@ -3,9 +3,9 @@
 using namespace std;
  
  
-int decrementos(int *Dif,int N, int *Orig, int *soma){
-  *soma = *soma+Dif[N+1];
-  int i,j, retorno = 0;
+long long int decrementos(long long int *Dif,long long int N, long long int *Orig, long long int *soma){
+  *soma = (*soma+Dif[N+1])%(1000000000+7);
+  long long int i,j;
   if (N<0) return 0;
  
   
@@ -15,26 +15,19 @@ int decrementos(int *Dif,int N, int *Orig, int *soma){
       Dif[i]--;
       for(j=i+1;j<N+2;j++)
         Dif[j] = Orig[j] - (Orig[i] - Dif[i]);
-      return 1;
+      return decrementos(Dif,N,Orig,soma);
     }
- 
-    else if(Dif[i] == 1){
-      retorno = 2;
-    }
- 
   }
-  return retorno;
+  return 0;
   
 }
  
 int main(){
   
-  int i;
-  int N, max;
-  int P[5001], Orig[5001];
-  int* soma;
-  soma = (int*) malloc(sizeof(int));
-  *soma = 0;
+  long long int i;
+  long long int N, max,soma;
+  long long int P[5001], Orig[5001];
+  soma = 0;
  
   for(i=0;i<5001;i++){
     Orig[i] = 0;
@@ -53,14 +46,28 @@ int main(){
     P[i] = max - P[i] + 1;
     Orig[i] = P[i];
   }
+
+  /*for(i=0;i<N;i++){
+    printf("%lld ",P[i]);
+    printf("%lld ",Orig[i]);
+    printf("\n");
+  }*/
+
  
-  while(decrementos(P, N-2, Orig, soma) == 1)
-    continue;
+  decrementos(P, N-2, Orig, &soma);
+  //while(decrementos(P, N-2, Orig, soma) == 1)
+  //  continue;
  
  
  
-  cout << *soma << endl;          //print resultado
- 
+  cout << soma << endl;          //prlong long int resultado
+
+  /*for(i=0;i<N;i++){
+    printf("%lld ",P[i]);
+    printf("%lld ",Orig[i]);
+    printf("\n");
+  }*/
+  
 return 0;
 }
  
